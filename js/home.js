@@ -75,6 +75,11 @@ document.getElementById("btn-add-money").addEventListener("click", function(even
         return;
     }
 
+    if (addAmount <= 0) {
+        alert("Invalid Amount");
+        return;
+    }
+
     if (pinNumber !== validPinNumber) {
         alert("Invalid Pin Number");
         return;
@@ -107,6 +112,11 @@ document.getElementById("btn-withdraw").addEventListener("click", function(event
 
     if (pinNumber !== validPinNumber) {
         alert("Invalid Pin Number");
+        return;
+    }
+
+    if (withdrawAmount <= 0 || withdrawAmount > availableBalance) {
+        alert("Invalid Amount");
         return;
     }
 
