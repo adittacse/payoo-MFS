@@ -54,14 +54,14 @@
                     <p id="get-bonus-title" class="text-[14px] text-[#080808b3] active-p">Get Bonus</p>
                 </div>
 
-                <div class="w-[123px] h-[86px] py-5 text-center border-1 border-[#0808081a] rounded-xl active">
+                <div id="pay-bill" class="w-[123px] h-[86px] py-5 text-center border-1 border-[#0808081a] rounded-xl active">
                     <img class="w-6 h-6 mb-1.5 mx-auto" src="./assets/purse1.png" alt="">
-                    <p id="active-title" class="text-[14px] text-[#080808b3] active-p">Pay Bill</p>
+                    <p id="pay-bill-title" class="text-[14px] text-[#080808b3] active-p">Pay Bill</p>
                 </div>
 
-                <div class="w-[123px] h-[86px] py-5 text-center border-1 border-[#0808081a] rounded-xl active">
+                <div id="transactions" class="w-[123px] h-[86px] py-5 text-center border-1 border-[#0808081a] rounded-xl active">
                     <img class="w-6 h-6 mb-1.5 mx-auto" src="./assets/transaction1.png" alt="">
-                    <p id="active-title" class="text-[14px] text-[#080808b3] active-p">Transactions</p>
+                    <p id="transactions-title" class="text-[14px] text-[#080808b3] active-p">Transactions</p>
                 </div>
             </div>
         </div>
@@ -169,6 +169,56 @@
                     <button id="btn-transfer-money" class="btn bg-[#0874F2] text-white mt-5 w-full rounded-3xl">Get Bonus</button>
                 </form>
             </div>
+
+            <!-- pay bill -->
+            <div class="form" id="pay-bill-parent" style="display: none;">
+                <h1 class="text-[18px] font-semibold pt-8 pb-4">Pay Bill</h1>
+                <form class="bg-white rounded-2xl p-6 flex flex-col justify-center mx-auto">
+                    <div>
+                        <label class="text-[#080808b3] font-semibold" for="">Select To Pay</label>
+                        <br />
+                        <select id="pay-bank" class="select mt-3 rounded-4xl outline-none bg-[#f4f5f7] w-full">
+                            <option disabled selected>Select Bank</option>
+                            <option>AB Bank</option>
+                            <option>IFIC Bank</option>
+                            <option>Dutch Bangla Bank</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-5">
+                        <label class="text-[#080808b3] font-semibold" for="">Biller Account Number</label>
+                        <br />
+                        <input id="pay-bill-account-number" type="text" placeholder="Enter account number" class="input bg-[#f4f5f7] rounded-4xl mt-3 w-full" />
+                    </div>
+
+                    <div class="mt-5">
+                        <label class="text-[#080808b3] font-semibold" for="">Amount to Pay</label>
+                        <br />
+                        <input id="pay-amount" type="text" placeholder="Add Amount to pay" class="input bg-[#f4f5f7] rounded-4xl mt-3 w-full" />
+                    </div>
+
+                    <div class="mt-5">
+                        <label class="text-[#080808b3] font-semibold" for="">Pin Number</label>
+                        <br />
+                        <input id="pay-pin" type="text" placeholder="Enter 4 digit pin number" class="input bg-[#f4f5f7] rounded-4xl mt-3 w-full" />
+                    </div>
+                    
+                    <button id="btn-pay-bill" class="btn bg-[#0874F2] text-white mt-5 w-full rounded-3xl">Pay Now</button>
+                </form>
+            </div>
+
+            <!-- transactions -->
+            <div class="form" id="transactions-parent" style="display: none;">
+                <div class="flex justify-between items-center mt-8 mb-4">
+                    <h3 class="text-[18px] font-semibold">Transaction History</h3>
+                    <p class="text-[#08080880]">View All</p>
+                </div>
+                
+                <div id="transaction-container">
+                    <!-- content add from home.js -->
+                </div>
+            </div>
+
         </div>
     </main>
 

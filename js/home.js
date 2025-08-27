@@ -1,4 +1,5 @@
 const validPinNumber = 1234;
+const transactionData = [];
 
 // function to get input values
 function getInputValueNumber(id) {
@@ -81,6 +82,12 @@ document.getElementById("btn-add-money").addEventListener("click", function(even
 
     const totalAvailableBalance = addAmount + availableBalance;
     setInnerText(totalAvailableBalance);
+
+    const data = {
+        name: "Add Money",
+        date: new Date().toLocaleTimeString(),
+    };
+    transactionData.push(data);
 });
 
 
@@ -105,6 +112,62 @@ document.getElementById("btn-withdraw").addEventListener("click", function(event
 
     const totalAvailableBalance = availableBalance - withdrawAmount;
     setInnerText(totalAvailableBalance);
+
+    const data = {
+        name: "Cashout",
+        date: new Date().toLocaleTimeString(),
+    };
+    transactionData.push(data);
+});
+
+
+// pay bill feature
+document.getElementById("btn-pay-bill").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const payBank = getInputValue("pay-bank");
+    const accountNumber = document.getElementById("pay-bill-account-number").value;
+    const addAmount = getInputValueNumber("pay-amount");
+    const pinNumber = getInputValueNumber("pay-pin");
+    const availableBalance = getInnerText("available-balance");
+
+    if (pinNumber !== validPinNumber) {
+        alert("Invalid Pin Number");
+        return;
+    }
+
+    const totalAvailableBalance = addAmount + availableBalance;
+    setInnerText(totalAvailableBalance);
+
+    const data = {
+        name: "Pay Bill",
+        date: new Date().toLocaleTimeString(),
+    };
+    transactionData.push(data);
+});
+
+document.getElementById("transactions").addEventListener("click", function() {
+    const transactionContainer = document.getElementById("transaction-container");
+    transactionContainer.innerText = "";
+
+    for (const data of transactionData) {
+        const div = document.createElement("div");
+        div.innerHTML = `
+        <div class="bg-white rounded-2xl p-6 flex justify-between items-center mb-3">
+            <div class="flex items-center">
+                <div class="p-2.5 rounded-full bg-[#0808080d]">
+                    <img src="./assets/wallet1.png" alt="">
+                </div>
+                <div class="ml-2">
+                    <h3>${data.name}</h3>
+                    <p>${data.date}</p>
+                </div>
+            </div>
+            <i class="fa-solid fa-ellipsis-vertical text-[#080808B3]"></i>
+        </div>
+        `;
+        transactionContainer.appendChild(div);
+    }
 });
 
 
@@ -131,4 +194,16 @@ document.getElementById("get-bonus").addEventListener("click", function() {
     handleToggle("get-bonus-parent");
     handleToggleStyle("get-bonus");
     handleToggleTitle("get-bonus-title");
+});
+
+document.getElementById("pay-bill").addEventListener("click", function() {
+    handleToggle("pay-bill-parent");
+    handleToggleStyle("pay-bill");
+    handleToggleTitle("pay-bill-title");
+});
+
+document.getElementById("transactions").addEventListener("click", function() {
+    handleToggle("transactions-parent");
+    handleToggleStyle("transactions");
+    handleToggleTitle("transactions-title");
 });
