@@ -44,12 +44,12 @@
                     <p class="text-[14px] text-[#080808b3]">Cashout</p>
                 </div>
 
-                <div class="w-[123px] h-[86px] py-5 text-center border-1 border-[#0808081a] rounded-xl">
+                <div id="transfer-money" class="w-[123px] h-[86px] py-5 text-center border-1 border-[#0808081a] rounded-xl">
                     <img class="w-6 h-6 mb-1.5 mx-auto" src="./assets/money1.png" alt="">
                     <p class="text-[14px] text-[#080808b3]">Transfer Money</p>
                 </div>
 
-                <div class="w-[123px] h-[86px] py-5 text-center border-1 border-[#0808081a] rounded-xl">
+                <div id="get-bonus" class="w-[123px] h-[86px] py-5 text-center border-1 border-[#0808081a] rounded-xl">
                     <img class="w-6 h-6 mb-1.5 mx-auto" src="./assets/bonus1.png" alt="">
                     <p class="text-[14px] text-[#080808b3]">Get Bonus</p>
                 </div>
@@ -68,7 +68,7 @@
 
         <div class="all-form-sections px-6">
             <!-- add money -->
-            <div id="add-money-parent">
+            <div class="form" id="add-money-parent">
                 <h1 class="text-[18px] font-semibold pt-8 pb-4">Add Money</h1>
                 <form class="bg-white rounded-2xl p-6 flex flex-col justify-center mx-auto">
                     <div>
@@ -105,7 +105,7 @@
             </div>
 
             <!-- cash out -->
-            <div id="cash-out-parent" style="display: none;">
+            <div class="form" id="cash-out-parent" style="display: none;">
                 <h1 class="text-[18px] font-semibold pt-8 pb-4">Cash Out</h1>
                 <form class="bg-white rounded-2xl p-6 flex flex-col justify-center mx-auto">
                     <div>
@@ -127,6 +127,46 @@
                     </div>
                     
                     <button id="btn-withdraw" class="btn bg-[#0874F2] text-white mt-5 w-full rounded-3xl">Withdraw Money</button>
+                </form>
+            </div>
+
+            <!-- transfer money -->
+            <div class="form" id="transfer-money-parent" style="display: none;">
+                <h1 class="text-[18px] font-semibold pt-8 pb-4">Transfer Money</h1>
+                <form class="bg-white rounded-2xl p-6 flex flex-col justify-center mx-auto">
+                    <div>
+                        <label class="text-[#080808b3] font-semibold" for="">User Account Number</label>
+                        <br />
+                        <input id="transfer-account-number" type="text" placeholder="Enter 11 digit number" class="input bg-[#f4f5f7] rounded-4xl mt-3 w-full" />
+                    </div>
+
+                    <div class="mt-5">
+                        <label class="text-[#080808b3] font-semibold" for="">Amount</label>
+                        <br />
+                        <input id="transfer-amount" type="text" placeholder="Enter amount to transfer" class="input bg-[#f4f5f7] rounded-4xl mt-3 w-full" />
+                    </div>
+
+                    <div class="mt-5">
+                        <label class="text-[#080808b3] font-semibold" for="">Pin Number</label>
+                        <br />
+                        <input id="transfer-pin" type="text" placeholder="Enter 4 digit pin" class="input bg-[#f4f5f7] rounded-4xl mt-3 w-full" />
+                    </div>
+                    
+                    <button id="btn-transfer-money" class="btn bg-[#0874F2] text-white mt-5 w-full rounded-3xl">Send Now</button>
+                </form>
+            </div>
+
+            <!-- get bonus -->
+            <div class="form" id="get-bonus-parent" style="display: none;">
+                <h1 class="text-[18px] font-semibold pt-8 pb-4">Get Bonus</h1>
+                <form class="bg-white rounded-2xl p-6 flex flex-col justify-center mx-auto">
+                    <div>
+                        <label class="text-[#080808b3] font-semibold" for="">Enter Bonus Coupon</label>
+                        <br />
+                        <input id="coupon" type="text" placeholder="Enter your coupon" class="input bg-[#f4f5f7] rounded-4xl mt-3 w-full" />
+                    </div>
+                    
+                    <button id="btn-transfer-money" class="btn bg-[#0874F2] text-white mt-5 w-full rounded-3xl">Get Bonus</button>
                 </form>
             </div>
         </div>
